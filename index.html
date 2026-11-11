@@ -257,13 +257,17 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
       <svg class="over" id="dims" viewBox="0 0 600 640" aria-hidden="true">
         <path d="M572 70 V592 M562 70 H582 M562 592 H582 M168 620 H432 M168 610 V630 M432 610 V630 M139 99 L51 205 M133 91 L145 107 M45 197 L57 213" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
       </svg>
+      <svg class="over" id="guides" viewBox="0 0 600 640" aria-hidden="true">
+        <line id="gV" y1="24" y2="616" stroke="#FF4D2E" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" style="display:none"/>
+        <line id="gH" x1="24" x2="576" stroke="#FF4D2E" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" style="display:none"/>
+      </svg>
       <span class="dim" id="dimA" style="left:95.3%;top:51.7%">A</span>
       <span class="dim" id="dimB" style="left:50%;top:96.9%">B</span>
       <span class="dim" id="dimC" style="left:15.8%;top:23.75%">C</span>
       <div id="patches"></div>
     </div>
     <p class="hint" id="stageHint"></p>
-    <p class="hint" id="axisHint">Пунктир — центральные линии футболки: вертикальная и горизонтальная</p>
+    <p class="hint" id="axisHint">Пунктир — центральные линии футболки. Нашивка сама «прилипает» к ним и к другим нашивкам</p>
   </section>
 
   <section class="panel side" aria-label="Нашивки">
@@ -553,6 +557,33 @@ function renderGroups() {
   });
 }
 
+/* Привязка при перетаскивании, как в PowerPoint: к центральным линиям футболки
+   и к центрам других нашивок. Пока нашивка «прилипла», показывается направляющая. */
+const SNAP = 1.6; /* зона прилипания, % рисунка */
+function snapTargets(p) {
+  const others = state.patches[state.side].filter((o) => o.uid !== p.uid);
+  return {
+    x: [BODY.cx / 6].concat(others.map((o) => o.x)),
+    y: [Math.round((BODY.top + BODY.length / 2) / 6.4 * 10) / 10].concat(others.map((o) => o.y)),
+  };
+}
+function nearest(v, list) {
+  let best = null;
+  list.forEach((t) => { const d = Math.abs(v - t); if (d <= SNAP && (best === null || d < Math.abs(v - best))) best = t; });
+  return best;
+}
+function snap(p, x, y) {
+  const t = snapTargets(p);
+  const sx = nearest(x, t.x), sy = nearest(y, t.y);
+  return { x: sx === null ? x : sx, y: sy === null ? y : sy, gx: sx, gy: sy };
+}
+function showGuides(s) {
+  const v = $("gV"), h = $("gH");
+  const on = (el, val, a, b) => { const off = val === null || val === undefined; el.style.display = off ? "none" : ""; if (!off) { el.setAttribute(a, val); el.setAttribute(b, val); } };
+  on(v, s && s.gx !== null && s.gx !== undefined ? s.gx * 6 : null, "x1", "x2");
+  on(h, s && s.gy !== null && s.gy !== undefined ? s.gy * 6.4 : null, "y1", "y2");
+}
+
 function patchButton(p) {
   const t = TYPES[p.type];
   const b = document.createElement("button");
@@ -578,14 +609,17 @@ function patchButton(p) {
     if (!drag || drag.uid !== p.uid) return;
     const r = $("tee").getBoundingClientRect();
     if (!r.width || !r.height) return;
-    p.x = clamp(((e.clientX - r.left) / r.width) * 100);
-    p.y = clamp(((e.clientY - r.top) / r.height) * 100);
+    const raw = { x: clamp(((e.clientX - r.left) / r.width) * 100), y: clamp(((e.clientY - r.top) / r.height) * 100) };
+    const sn = e.altKey ? raw : snap(p, raw.x, raw.y); /* Alt — двигать без привязки */
+    p.x = sn.x; p.y = sn.y;
+    showGuides(sn);
     b.style.left = p.x + "%";
     b.style.top = p.y + "%";
   });
   const end = () => {
     if (!drag || drag.uid !== p.uid) return;
     drag = null;
+    showGuides(null);
     b.classList.remove("drag");
   };
   b.addEventListener("pointerup", end);
@@ -636,7 +670,11 @@ function select(uid) { state.selected = uid; renderSelection(); }
 function nudge(dx, dy) {
   const p = selectedPatch();
   if (!p) return;
-  p.x = clamp(p.x + dx); p.y = clamp(p.y + dy);
+  /* Стрелки: шаг не перескакивает через линию привязки, а останавливается на ней. */
+  const t = snapTargets(p);
+  const step = (v, d, list) => { const n = clamp(v + d); const hit = list.filter((q) => (q - v) * (q - n) < 0).sort((a, b) => Math.abs(a - v) - Math.abs(b - v))[0]; return hit === undefined ? n : hit; };
+  if (dx) p.x = step(p.x, dx, t.x);
+  if (dy) p.y = step(p.y, dy, t.y);
   const el = document.querySelector('#patches .patch[data-uid="' + p.uid + '"]');
   if (el) { el.style.left = p.x + "%"; el.style.top = p.y + "%"; }
 }
