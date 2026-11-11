@@ -248,6 +248,7 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
         <path id="pBody" fill="#FBFBF8" stroke="#C5CAD3" stroke-width="1.5" stroke-linejoin="round"/>
         <path id="pRib" fill="none" stroke="#E3E5E4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
         <path id="pSeam" fill="none" stroke="#CDD1D8" stroke-width="2" stroke-dasharray="5 5"/>
+        <path id="pAxis" fill="none" stroke="#0A6B35" stroke-opacity=".6" stroke-width="1.8" stroke-dasharray="8 7" stroke-linecap="round"/>
       </svg>
       <svg class="over" id="backLogo" viewBox="0 0 600 640" aria-hidden="true" hidden>
         <path transform="translate(284 96) scale(.32)" d="M50 58 C40 30 26 14 4 10 C22 4 46 14 50 40 C54 14 78 4 96 10 C74 14 60 30 50 58 Z" fill="#0A6B35"/>
@@ -262,6 +263,7 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
       <div id="patches"></div>
     </div>
     <p class="hint" id="stageHint"></p>
+    <p class="hint" id="axisHint">Пунктир — центральные линии футболки: вертикальная и горизонтальная</p>
   </section>
 
   <section class="panel side" aria-label="Нашивки">
@@ -531,6 +533,10 @@ function renderTee() {
   $("pInner").setAttribute("d", front ? "M250 70 Q300 86 350 70 " + neckFront + " Z" : "M0 0");
   $("pRib").setAttribute("d", front ? "M350 70 " + neckFront + " M250 70 Q300 86 350 70" : "M350 70 " + neckBack);
   $("pSeam").setAttribute("d", SHAPE.seam);
+  /* Центральные линии: вертикальная ось и середина длины изделия. */
+  const axisTop = !front ? 142 : state.collar === "v" ? 150 : 112;
+  const midY = BODY.top + BODY.length / 2;
+  $("pAxis").setAttribute("d", "M" + BODY.cx + " " + axisTop + " V596 M" + (BODY.cx - BODY.width / 2) + " " + midY + " H" + (BODY.cx + BODY.width / 2));
   show($("backLogo"), !front);
   show($("measureBox"), state.fit === "custom");
   show($("sizeBox"), state.fit === "std");
