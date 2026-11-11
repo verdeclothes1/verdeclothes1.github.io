@@ -259,6 +259,7 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
       </svg>
       <svg class="over" id="guides" viewBox="0 0 600 640" aria-hidden="true">
         <line id="gV" y1="24" y2="616" stroke="#FF4D2E" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" style="display:none"/>
+        <path id="gS" fill="none" stroke="#FF4D2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         <line id="gH" x1="24" x2="576" stroke="#FF4D2E" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" style="display:none"/>
       </svg>
       <span class="dim" id="dimA" style="left:95.3%;top:51.7%">A</span>
@@ -267,7 +268,7 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
       <div id="patches"></div>
     </div>
     <p class="hint" id="stageHint"></p>
-    <p class="hint" id="axisHint">Пунктир — центральные линии футболки. Нашивка сама «прилипает» к ним и к другим нашивкам</p>
+    <p class="hint" id="axisHint">Пунктир — центральные линии футболки. Нашивки «прилипают» к линиям, друг к другу и на равные расстояния</p>
   </section>
 
   <section class="panel side" aria-label="Нашивки">
@@ -572,16 +573,57 @@ function nearest(v, list) {
   list.forEach((t) => { const d = Math.abs(v - t); if (d <= SNAP && (best === null || d < Math.abs(v - best))) best = t; });
   return best;
 }
+/* Равные промежутки: точка, в которой нашивка встаёт на одинаковом расстоянии от соседей
+   по той же линии — между двумя соседями или продолжая ряд с любого края. */
+function equalGap(v, list) {
+  const xs = list.slice().sort((a, b) => a - b), n = xs.length, c = [];
+  if (n < 2) return null;
+  for (let i = 0; i + 1 < n; i++) if (xs[i + 1] - xs[i] > 1) c.push({ t: (xs[i] + xs[i + 1]) / 2, pts: [xs[i], null, xs[i + 1]] });
+  if (xs[1] - xs[0] > 1) c.push({ t: 2 * xs[0] - xs[1], pts: [null, xs[0], xs[1]] });
+  if (xs[n - 1] - xs[n - 2] > 1) c.push({ t: 2 * xs[n - 1] - xs[n - 2], pts: [xs[n - 2], xs[n - 1], null] });
+  let best = null;
+  c.forEach((k) => { const d = Math.abs(v - k.t); if (k.t >= 4 && k.t <= 96 && d <= SNAP && (!best || d < Math.abs(v - best.t))) best = k; });
+  return best && { t: best.t, pts: best.pts.map((q) => (q === null ? best.t : q)) };
+}
 function snap(p, x, y) {
   const t = snapTargets(p);
-  const sx = nearest(x, t.x), sy = nearest(y, t.y);
-  return { x: sx === null ? x : sx, y: sy === null ? y : sy, gx: sx, gy: sy };
+  const others = state.patches[state.side].filter((o) => o.uid !== p.uid);
+  const ax = nearest(x, t.x), ay = nearest(y, t.y);
+  const xv = ax === null ? x : ax, yv = ay === null ? y : ay;
+  const ex = equalGap(x, others.filter((o) => Math.abs(o.y - yv) <= 0.6).map((o) => o.x));
+  const ey = equalGap(y, others.filter((o) => Math.abs(o.x - xv) <= 0.6).map((o) => o.y));
+  /* Из выравнивания по линии и равного промежутка берём то, что ближе; если совпали — показываем оба. */
+  const pick = (raw, a, e) => {
+    const same = e && a !== null && Math.abs(e.t - a) < 0.05;
+    if (e && (a === null || same || Math.abs(e.t - raw) < Math.abs(a - raw))) return { v: e.t, g: same ? a : null, e };
+    return { v: a === null ? raw : a, g: a, e: null };
+  };
+  const px = pick(x, ax, ex), py = pick(y, ay, ey);
+  return { x: px.v, y: py.v, gx: px.g, gy: py.g, ex: px.e, ey: py.e };
 }
 function showGuides(s) {
-  const v = $("gV"), h = $("gH");
-  const on = (el, val, a, b) => { const off = val === null || val === undefined; el.style.display = off ? "none" : ""; if (!off) { el.setAttribute(a, val); el.setAttribute(b, val); } };
-  on(v, s && s.gx !== null && s.gx !== undefined ? s.gx * 6 : null, "x1", "x2");
-  on(h, s && s.gy !== null && s.gy !== undefined ? s.gy * 6.4 : null, "y1", "y2");
+  const has = (v) => v !== null && v !== undefined;
+  const on = (el, val, a, b) => { el.style.display = has(val) ? "" : "none"; if (has(val)) { el.setAttribute(a, val); el.setAttribute(b, val); } };
+  on($("gV"), s && has(s.gx) ? s.gx * 6 : null, "x1", "x2");
+  on($("gH"), s && has(s.gy) ? s.gy * 6.4 : null, "y1", "y2");
+  /* Стрелки равных промежутков — между краями соседних нашивок. */
+  const marks = [];
+  if (s && (s.ex || s.ey)) {
+    const el = document.querySelector("#patches .patch"), r = $("tee").getBoundingClientRect();
+    const rx = el && r.width ? el.offsetWidth / r.width * 300 : 26, ry = el && r.height ? el.offsetHeight / r.height * 320 : 26;
+    const f = (n) => Math.round(n * 10) / 10;
+    for (let i = 0; i < 2; i++) {
+      if (s.ex) {
+        const a = f(s.ex.pts[i] * 6 + rx + 3), b = f(s.ex.pts[i + 1] * 6 - rx - 3), y0 = f(s.y * 6.4);
+        if (b - a > 10) marks.push("M" + a + " " + y0 + " H" + b + " M" + (a + 6) + " " + (y0 - 5) + " L" + a + " " + y0 + " L" + (a + 6) + " " + (y0 + 5) + " M" + (b - 6) + " " + (y0 - 5) + " L" + b + " " + y0 + " L" + (b - 6) + " " + (y0 + 5));
+      }
+      if (s.ey) {
+        const a = f(s.ey.pts[i] * 6.4 + ry + 3), b = f(s.ey.pts[i + 1] * 6.4 - ry - 3), x0 = f(s.x * 6);
+        if (b - a > 10) marks.push("M" + x0 + " " + a + " V" + b + " M" + (x0 - 5) + " " + (a + 6) + " L" + x0 + " " + a + " L" + (x0 + 5) + " " + (a + 6) + " M" + (x0 - 5) + " " + (b - 6) + " L" + x0 + " " + b + " L" + (x0 + 5) + " " + (b - 6));
+      }
+    }
+  }
+  $("gS").setAttribute("d", marks.join(" "));
 }
 
 function patchButton(p) {
