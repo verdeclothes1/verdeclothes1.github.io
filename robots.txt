@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fekhanin-svg.github.io/sitemap.xml
+Sitemap: https://verdeclothes1.github.io/sitemap.xml

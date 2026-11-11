@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>verde — футболки с нашивками на заказ | конструктор футболки</title>
-<meta name="description" content="verde — дизайнерские футболки с нашивками на заказ. Соберите свою в конструкторе: выберите ворот, посадку и ткань, расставьте нашивки и отправьте заказ онлайн.">
-<link rel="canonical" href="https://fekhanin-svg.github.io/">
+<meta name="description" content="verde — дизайнерские футболки с нашивками на заказ. Соберите свою в конструкторе: выберите ворот, размер и ткань, расставьте нашивки и отправьте заказ онлайн.">
+<link rel="canonical" href="https://verdeclothes1.github.io/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="verde">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:url" content="https://fekhanin-svg.github.io/">
+<meta property="og:url" content="https://verdeclothes1.github.io/">
 <meta property="og:title" content="verde — футболки с нашивками на заказ">
 <meta property="og:description" content="Соберите свою футболку в конструкторе: ворот, посадка, ткань и нашивки.">
 <meta name="theme-color" content="#0A6B35">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"WebSite","@id":"https://fekhanin-svg.github.io/#website","url":"https://fekhanin-svg.github.io/","name":"verde","alternateName":"verde — футболки с нашивками","inLanguage":"ru","description":"verde — дизайнерские футболки с нашивками на заказ. Соберите свою в конструкторе: выберите ворот, посадку и ткань, расставьте нашивки и отправьте заказ онлайн."},
-{"@type":"Brand","@id":"https://fekhanin-svg.github.io/#brand","name":"verde","url":"https://fekhanin-svg.github.io/","description":"Дизайнерские футболки с нашивками на заказ"}
+{"@type":"WebSite","@id":"https://verdeclothes1.github.io/#website","url":"https://verdeclothes1.github.io/","name":"verde","alternateName":"verde — футболки с нашивками","inLanguage":"ru","description":"verde — дизайнерские футболки с нашивками на заказ. Соберите свою в конструкторе: выберите ворот, размер и ткань, расставьте нашивки и отправьте заказ онлайн."},
+{"@type":"Brand","@id":"https://verdeclothes1.github.io/#brand","name":"verde","url":"https://verdeclothes1.github.io/","description":"Дизайнерские футболки с нашивками на заказ"}
 ]}
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230A6B35'/%3E%3Cpath transform='translate(14 22) scale(.72)' d='M50 58 C40 30 26 14 4 10 C22 4 46 14 50 40 C54 14 78 4 96 10 C74 14 60 30 50 58 Z' fill='%23fff'/%3E%3C/svg%3E">
@@ -89,7 +89,7 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
 .tee > svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .tee > svg.base{filter:drop-shadow(0 16px 22px rgba(4,14,44,.45))}
 .tee > svg.over{pointer-events:none}
-.dim{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#fff;color:var(--ink);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.dim{position:absolute;transform:translate(-50%,-50%);min-width:26px;height:26px;padding:0 7px;border-radius:13px;white-space:nowrap;background:#fff;color:var(--ink);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .patch{position:absolute;width:9%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:0;padding:0;border-radius:50%;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(15,26,51,.3)}
 .patch::after{content:"";position:absolute;inset:-10px;border-radius:50%}
 .patch svg{width:62%;height:62%;display:block;pointer-events:none}
@@ -124,6 +124,17 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
 .done{align-items:flex-start;gap:14px}
 .done h2{font-size:24px;font-weight:800}
 .done p{font-size:15px;max-width:60ch}
+.promo{display:flex;flex-direction:column;gap:6px;min-width:0}
+.promo-row{display:flex;gap:8px}
+.promo-row input{flex:1 1 auto;min-width:0;min-height:46px;padding:10px 12px;border-radius:12px;border:2px solid var(--field);background:#fff;font-size:16px;font-weight:600;text-transform:uppercase}
+.promo-row input::placeholder{color:#6B7488;font-weight:500;text-transform:none}
+.promo-row .ghost{align-self:stretch;min-height:46px;flex:none}
+#promoMsg.ok{color:var(--green);font-weight:700}
+#promoMsg.no{color:var(--err);font-weight:600}
+#sizeBox.bad .pick{border-color:var(--err)}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:16px;font-weight:700}
+.total b{font-size:28px;font-weight:800;line-height:1}
+.about a{color:var(--green);font-weight:700}
 .about h2{font-size:20px}
 .about h3{font-size:16px;font-weight:800}
 .about p,.about li{font-size:15px;line-height:1.5;max-width:70ch}
@@ -163,7 +174,7 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
     <span class="logo"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M50 58 C40 30 26 14 4 10 C22 4 46 14 50 40 C54 14 78 4 96 10 C74 14 60 30 50 58 Z" fill="currentColor"/></svg>verde</span>
     <h1>Конструктор футболок с нашивками</h1>
   </div>
-  <p>Выберите ворот, посадку и ткань, расставьте нашивки и отправьте заказ</p>
+  <p>Выберите ворот, размер и ткань, расставьте нашивки и отправьте заказ</p>
 </header>
 
 <main class="grid">
@@ -184,43 +195,43 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
     </div>
 
     <div class="block">
-      <h2>Посадка</h2>
+      <h2>Футболка и размер</h2>
       <div class="stack" data-group="fit">
-        <button type="button" class="pick row" data-v="classic">
-          <svg class="thumb sq" viewBox="0 40 600 600" aria-hidden="true"><path d="M250 70 L150 108 L62 214 L118 256 L168 204 L168 592 Q300 604 432 592 L432 204 L482 256 L538 214 L450 108 L350 70 C340 114 260 114 250 70 Z" fill="#FBFBF8"/></svg>
-          <span><b>Классическая</b><small>Прямой крой</small></span>
+        <button type="button" class="pick row" data-v="none">
+          <svg class="thumb sq" viewBox="0 40 600 600" aria-hidden="true"><path d="M250 70 L150 108 L62 214 L118 256 L168 204 L168 592 Q300 604 432 592 L432 204 L482 256 L538 214 L450 108 L350 70 C340 114 260 114 250 70 Z" fill="none" stroke="#fff" stroke-width="12" stroke-dasharray="26 22" stroke-linejoin="round"/></svg>
+          <span><b>Без футболки</b><small>900 ₽ + нашивки</small></span>
         </button>
-        <button type="button" class="pick row" data-v="over">
-          <svg class="thumb sq" viewBox="0 40 600 600" aria-hidden="true"><path d="M250 70 L128 112 L40 250 L104 290 L150 226 L150 610 Q300 622 450 610 L450 226 L496 290 L560 250 L472 112 L350 70 C340 114 260 114 250 70 Z" fill="#FBFBF8"/></svg>
-          <span><b>Оверсайз</b><small>Свободная, спущенное плечо</small></span>
+        <button type="button" class="pick row" data-v="std">
+          <svg class="thumb sq" viewBox="0 40 600 600" aria-hidden="true"><path d="M250 70 L150 108 L62 214 L118 256 L168 204 L168 592 Q300 604 432 592 L432 204 L482 256 L538 214 L450 108 L350 70 C340 114 260 114 250 70 Z" fill="#FBFBF8"/></svg>
+          <span><b>По стандарту Verde</b><small>Размер S или M · 3 000 ₽ + нашивки</small></span>
         </button>
         <button type="button" class="pick row" data-v="custom">
           <svg class="thumb sq" viewBox="0 40 600 600" aria-hidden="true"><path d="M230 90 L140 124 L62 218 L112 256 L156 210 L156 560 Q275 570 394 560 L394 210 L438 256 L488 218 L410 124 L320 90 C311 130 239 130 230 90 Z" fill="#FBFBF8"/><path d="M540 90 V560 M518 90 H562 M518 560 H562 M156 606 H394 M156 584 V628 M394 584 V628" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/></svg>
-          <span><b>По индивидуальному размеру</b><small>Шьём по вашим меркам</small></span>
+          <span><b>По индивидуальному размеру</b><small>По вашим меркам · 3 000 ₽ + нашивки</small></span>
         </button>
       </div>
-      <div id="sizeBox" class="fields">
-        <label class="f" id="f-size">Размер
-          <input id="size" type="text" autocomplete="off" placeholder="Например, M">
-        </label>
+      <div id="sizeBox" class="two" data-group="size" role="group" aria-label="Размер">
+        <button type="button" class="pick col" data-v="S"><b>S</b><small>A 70 · B 60 · C 24 см</small></button>
+        <button type="button" class="pick col" data-v="M"><b>M</b><small>A 72 · B 62 · C 25 см</small></button>
       </div>
       <div id="measureBox" class="fields three" hidden>
         <label class="f" id="f-m_a">A · Длина, см <input id="m_a" type="text" inputmode="decimal" autocomplete="off"></label>
         <label class="f" id="f-m_b">B · Ширина, см <input id="m_b" type="text" inputmode="decimal" autocomplete="off"></label>
         <label class="f" id="f-m_c">C · Рукав, см <input id="m_c" type="text" inputmode="decimal" autocomplete="off"></label>
       </div>
+      <p class="hint">A — длина изделия, B — ширина, C — длина рукава. Размеры показаны на футболке.</p>
     </div>
 
     <div class="block">
       <h2>Ткань</h2>
       <div class="two" data-group="fabric">
-        <button type="button" class="pick col" data-v="futer">
+        <button type="button" class="pick col" data-v="dense">
           <span class="swatch futer" aria-hidden="true"></span>
-          <b>Футер, 2 нити</b><small>Плотный, петли на изнанке</small>
+          <b>Плотная</b>
         </button>
-        <button type="button" class="pick col" data-v="kulirka">
+        <button type="button" class="pick col" data-v="light">
           <span class="swatch kulirka" aria-hidden="true"></span>
-          <b>Кулирка 230</b><small>Гладкая, 230 г/м²</small>
+          <b>Лёгкая</b>
         </button>
       </div>
     </div>
@@ -242,12 +253,12 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
         <path transform="translate(284 96) scale(.32)" d="M50 58 C40 30 26 14 4 10 C22 4 46 14 50 40 C54 14 78 4 96 10 C74 14 60 30 50 58 Z" fill="#0A6B35"/>
         <text x="300" y="131" text-anchor="middle" font-size="15" font-weight="800" fill="#0A6B35">verde</text>
       </svg>
-      <svg class="over" id="dims" viewBox="0 0 600 640" aria-hidden="true" hidden>
+      <svg class="over" id="dims" viewBox="0 0 600 640" aria-hidden="true">
         <path d="M572 70 V592 M562 70 H582 M562 592 H582 M168 620 H432 M168 610 V630 M432 610 V630 M139 99 L51 205 M133 91 L145 107 M45 197 L57 213" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
       </svg>
-      <span class="dim" data-dim style="left:95.3%;top:51.7%" hidden>A</span>
-      <span class="dim" data-dim style="left:50%;top:96.9%" hidden>B</span>
-      <span class="dim" data-dim style="left:15.8%;top:23.75%" hidden>C</span>
+      <span class="dim" id="dimA" style="left:95.3%;top:51.7%">A</span>
+      <span class="dim" id="dimB" style="left:50%;top:96.9%">B</span>
+      <span class="dim" id="dimC" style="left:15.8%;top:23.75%">C</span>
       <div id="patches"></div>
     </div>
     <p class="hint" id="stageHint"></p>
@@ -293,9 +304,17 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
         <label class="f" id="f-contact">Как с вами связаться
           <input id="contact" type="text" autocomplete="off" placeholder="Телефон, Telegram или другое">
         </label>
-        <label class="f" id="f-qty">Сколько таких футболок
+        <label class="f" id="f-qty">Количество
           <input id="qty" type="text" inputmode="numeric" autocomplete="off" value="1">
         </label>
+        <div class="promo">
+          <label class="f" id="f-promo" for="promo">Промокод</label>
+          <div class="promo-row">
+            <input id="promo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Если есть">
+            <button type="button" class="ghost" id="promoBtn">Применить</button>
+          </div>
+          <p class="hint" id="promoMsg" role="status"></p>
+        </div>
         <label class="f wide">Комментарий к заказу
           <textarea id="comment" rows="3"></textarea>
         </label>
@@ -304,13 +323,16 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
     <div class="sum">
       <dl>
         <dt>Ворот</dt><dd id="sCollar"></dd>
-        <dt>Посадка</dt><dd id="sFit"></dd>
+        <dt>Футболка</dt><dd id="sFit"></dd>
         <dt>Ткань</dt><dd id="sFabric"></dd>
         <dt>Нашивки</dt><dd id="sPatches"></dd>
+        <dt>Расчёт</dt><dd id="sCalc"></dd>
+        <dt id="sDiscountT" hidden>Промокод</dt><dd id="sDiscount" hidden></dd>
       </dl>
+      <p class="total"><span>Итого:</span><b id="sTotal"></b></p>
       <p class="msg" id="formMsg" role="alert"></p>
       <button type="submit" class="cta" id="sendBtn">Отправить заказ</button>
-      <p class="fine">Мы свяжемся с вами, чтобы подтвердить заказ и назвать стоимость.</p>
+      <p class="fine">Мы свяжемся с вами, чтобы подтвердить заказ. Доставка бесплатна по Санкт-Петербургу, Москве, Ленинградской и Московской областям; в остальные регионы стоимость согласуем отдельно.</p>
       <div class="test" id="testBox" hidden></div>
     </div>
   </form>
@@ -319,25 +341,45 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
 <section class="panel about" aria-labelledby="aboutTitle">
   <div class="block">
     <h2 id="aboutTitle">Футболки verde с нашивками на заказ</h2>
-    <p>verde — дизайнерские футболки, которые вы собираете сами. В конструкторе можно выбрать ворот, посадку и ткань, а затем расставить нашивки спереди и сзади так, как вам нравится. Мы шьём футболку по вашему макету.</p>
+    <p>verde — дизайнерские футболки, которые вы собираете сами. В конструкторе можно выбрать ворот, размер и ткань, а затем расставить нашивки спереди и сзади так, как вам нравится. Мы шьём футболку по вашему макету.</p>
   </div>
   <div class="about-grid">
     <div class="block">
       <h3>Как заказать</h3>
       <ol>
-        <li>Выберите ворот, посадку и ткань.</li>
+        <li>Выберите ворот, размер и ткань.</li>
         <li>Добавьте нашивки и перетащите их на нужное место или возьмите готовую раскладку.</li>
-        <li>Оставьте имя и контакт и отправьте заказ. Мы свяжемся с вами, чтобы подтвердить его и назвать стоимость.</li>
+        <li>Оставьте имя и контакт и отправьте заказ. Мы свяжемся с вами, чтобы подтвердить его.</li>
       </ol>
     </div>
     <div class="block">
       <h3>Что можно выбрать</h3>
       <ul>
         <li><b>Ворот:</b> полукруг или треугольник.</li>
-        <li><b>Посадка:</b> классическая, оверсайз или пошив по индивидуальному размеру.</li>
-        <li><b>Ткань:</b> футер в две нити или кулирка плотностью 230 г/м².</li>
+        <li><b>Футболка:</b> по стандарту Verde (размеры S и M), по индивидуальному размеру или заказ без футболки.</li>
+        <li><b>Ткань:</b> плотная или лёгкая.</li>
         <li><b>Нашивки:</b> солнце, капля, трава, цветок, дерево и лист.</li>
       </ul>
+    </div>
+    <div class="block">
+      <h3>Цена</h3>
+      <ul>
+        <li>Футболка — 3 000 ₽ и 300 ₽ за каждую нашивку.</li>
+        <li>Заказ без футболки — 900 ₽ и 300 ₽ за каждую нашивку.</li>
+        <li>Сумма считается в конструкторе и показана рядом с кнопкой «Отправить заказ».</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Промокод</h3>
+      <p>Промокод даёт 2000 бонусов — это 200 ₽ скидки на заказ. Его можно получить за сдачу футболки в пункт переработки: пришлите фото сдачи в директ Instagram <a href="https://www.instagram.com/verdeclothes1/">@verdeclothes1</a>, и мы отправим вам код. Введите его в поле «Промокод» перед отправкой заказа. Один промокод действует на один заказ.</p>
+    </div>
+    <div class="block">
+      <h3>Доставка</h3>
+      <p>Доставка бесплатна только по Санкт-Петербургу, Москве, Ленинградской и Московской областям. Для остальных регионов стоимость доставки согласуем дополнительно.</p>
+    </div>
+    <div class="block">
+      <h3>Возврат</h3>
+      <p>Условия возврата уточняйте по почте <a href="mailto:verdeclothes1@yandex.com">verdeclothes1@yandex.com</a>.</p>
     </div>
   </div>
 </section>
@@ -351,25 +393,33 @@ label.f.bad input,label.f.bad textarea{border-color:var(--err)}
 </div>
 
 <script>
-/* ---------- Google Form connection ----------
-   formAction: https://docs.google.com/forms/d/e/<ID формы>/formResponse
-   entries:    идентификаторы полей формы (числа из entry.XXXXXXX)
+/* ---------- подключение ----------
+   formAction: адрес Google Формы (…/formResponse); entries: номера её полей (entry.XXXX);
+   promoUrl: адрес проверки промокодов (веб-приложение Google Apps Script).
    Пока formAction пустой, сайт работает в тестовом режиме и ничего не отправляет. */
 const CONFIG = {
-  formAction: "https://docs.google.com/forms/d/e/1FAIpQLScACxKARTFLBmtp8UVUJzuaot1RwDMUHUNa1loiZEIu47DtrQ/formResponse",
+  formAction: "https://docs.google.com/forms/d/e/1FAIpQLSfRlRb3jExwj3wdEA_h6KaN2UZWILJAkNi15s6Wt5_2ffWmQA/formResponse",
+  promoUrl: "https://script.google.com/macros/s/AKfycbz_McOc3xnoc3Kkj2Ky_J9jLa_a328UlHYcysV5hst5fc_fp1AVIdsK6kfReRti0mYt/exec",
   entries: {
-    name: "1979753855", contact: "1150565879", collar: "1779492488", fit: "2071116752", size: "155384567",
-    m_a: "1459510821", m_b: "737393255", m_c: "1634955663", fabric: "626935156",
-    front: "554706262", back: "918196994", total: "81879755", qty: "963332135", comment: "2076147781", link: "1177576618"
+    name: "845523526", contact: "1172860760", collar: "897543308", tee: "415248888", size: "668314264",
+    m_a: "1002903645", m_b: "538566957", m_c: "482606308", fabric: "1944606506", front: "436694269",
+    back: "358173465", total: "386033488", qty: "170096053", promo: "116636624", discount: "565584235",
+    price: "622246244", comment: "277361906", link: "1220368141"
   }
 };
 
-/* Тексты вариантов должны совпадать с вариантами в Google Форме. */
 const LABELS = {
   collar: { round: "Полукруг", v: "Треугольник" },
-  fit: { classic: "Классическая", over: "Оверсайз", custom: "По индивидуальному размеру" },
-  fabric: { futer: "Футер, 2 нити", kulirka: "Кулирка 230" }
+  fit: { none: "Без футболки", std: "По стандарту Verde", custom: "По индивидуальному размеру" },
+  size: { S: "S", M: "M" },
+  fabric: { dense: "Плотная", light: "Лёгкая" }
 };
+/* Стандартные размеры Verde, см: A — длина изделия, B — ширина, C — длина рукава. */
+const SIZES = { S: { a: 70, b: 60, c: 24 }, M: { a: 72, b: 62, c: 25 } };
+/* Цена, ₽: футболка или заказ без футболки, плюс за каждую нашивку; скидка по промокоду. */
+const PRICE = { tee: 3000, none: 900, patch: 300, promo: 200, bonus: 2000 };
+/* Футболка на рисунке в единицах viewBox (600×640): ось, верх плеча, ширина B и длина A. */
+const BODY = { cx: 300, top: 70, width: 264, length: 522 };
 
 const TYPES = {
   sun:    { label: "Солнце", color: "#D4902A", d: "M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0z M11.25 2.5h1.5v3.5h-1.5z M11.25 18h1.5v3.5h-1.5z M2.5 11.25h3.5v1.5h-3.5z M18 11.25h3.5v1.5h-3.5z M16.2 6.7l2.5-2.5l1.1 1.1l-2.5 2.5z M7.8 6.7l-2.5-2.5l-1.1 1.1l2.5 2.5z M16.2 17.3l2.5 2.5l1.1-1.1l-2.5-2.5z M7.8 17.3l-2.5 2.5l-1.1-1.1l2.5-2.5z" },
@@ -380,9 +430,9 @@ const TYPES = {
   leaf:   { label: "Лист", color: "#121F38", d: "M6 18C6 10.5 10.5 6 19 5C18 13.5 13.5 18 6 18z M4.2 20.6l2.6-2.6l0.9 0.9l-2.6 2.6z" }
 };
 
-const SHAPES = {
-  classic: { body: "M250 70 L150 108 L62 214 L118 256 L168 204 L168 592 Q300 604 432 592 L432 204 L482 256 L538 214 L450 108 L350 70", seam: "M168 578 Q300 590 432 578 M71 207 L122 245 M529 207 L478 245" },
-  over:    { body: "M250 70 L128 112 L40 250 L104 290 L150 226 L150 610 Q300 622 450 610 L450 226 L496 290 L560 250 L472 112 L350 70", seam: "M150 596 Q300 608 450 596 M48 242 L107 279 M552 242 L493 279" }
+const SHAPE = {
+  body: "M250 70 L150 108 L62 214 L118 256 L168 204 L168 592 Q300 604 432 592 L432 204 L482 256 L538 214 L450 108 L350 70",
+  seam: "M168 578 Q300 590 432 578 M71 207 L122 245 M529 207 L478 245"
 };
 
 const PRESETS = {
@@ -393,12 +443,17 @@ const PRESETS = {
 const $ = (id) => document.getElementById(id);
 /* SVG elements do not support the hidden property, so always toggle the attribute. */
 const show = (el, on) => el.toggleAttribute("hidden", !on);
+const val = (id) => $(id).value.trim();
+/* Число из поля (запятая или точка) либо null. */
+const num = (id) => { const n = parseFloat(val(id).replace(",", ".")); return isFinite(n) && n > 0 ? n : null; };
+const rub = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
 let seq = 0;
 const mk = ([type, x, y]) => ({ uid: "p" + (++seq), type, x, y });
 
 const state = {
-  collar: "round", fit: "classic", fabric: "kulirka", side: "front", selected: null,
-  patches: { front: [], back: [] }
+  collar: "round", fit: "std", size: null, fabric: "light", side: "front", selected: null,
+  patches: { front: [], back: [] },
+  promo: { code: "", ok: false }
 };
 let drag = null;
 
@@ -410,7 +465,7 @@ function decodeSide(s) {
     .slice(0, 40).map((a) => mk([a[0], clamp(+a[1]), clamp(+a[2])]));
 }
 function layoutLink() {
-  const q = new URLSearchParams({ c: state.collar, f: state.fit, t: state.fabric, pf: encodeSide(state.patches.front), pb: encodeSide(state.patches.back) });
+  const q = new URLSearchParams({ c: state.collar, f: state.fit, s: state.size || "", t: state.fabric, pf: encodeSide(state.patches.front), pb: encodeSide(state.patches.back) });
   return location.origin + location.pathname + "#" + q.toString();
 }
 function restoreFromHash() {
@@ -419,6 +474,7 @@ function restoreFromHash() {
   const q = new URLSearchParams(h);
   if (LABELS.collar[q.get("c")]) state.collar = q.get("c");
   if (LABELS.fit[q.get("f")]) state.fit = q.get("f");
+  if (SIZES[q.get("s")]) state.size = q.get("s");
   if (LABELS.fabric[q.get("t")]) state.fabric = q.get("t");
   if (q.has("pf")) state.patches.front = decodeSide(q.get("pf"));
   if (q.has("pb")) state.patches.back = decodeSide(q.get("pb"));
@@ -433,29 +489,63 @@ function zoneOf(p) {
   const row = p.y < 41.4 ? 0 : p.y < 64.8 ? 1 : 2;
   return "зона " + (row * 3 + col + 1);
 }
-function describe(list) {
-  return list.map((p) => TYPES[p.type].label + " — " + zoneOf(p) + " (" + Math.round(p.x) + "% слева, " + Math.round(p.y) + "% сверху)").join("\n");
+/* Размеры изделия в сантиметрах: стандартные, введённые покупателем или неизвестные. */
+function dims() {
+  if (state.fit === "std") return state.size ? SIZES[state.size] : {};
+  if (state.fit === "custom") return { a: num("m_a"), b: num("m_b"), c: num("m_c") };
+  return {};
+}
+const cm = (n) => { const r = Math.round(n * 2) / 2; return (r % 1 ? r.toFixed(1) : String(r)).replace(".", ","); };
+/* Место центра нашивки: от осевой линии и от верха плеча. В сантиметрах, если известны A и B,
+   иначе в долях ширины и длины изделия. */
+function place(p) {
+  const d = dims();
+  const dx = p.x / 100 * 600 - BODY.cx;
+  const dy = p.y / 100 * 640 - BODY.top;
+  const side = dx < 0 ? "левее" : "правее";
+  if (d.a && d.b) {
+    const x = Math.abs(dx) * d.b / BODY.width;
+    const y = dy * d.a / BODY.length;
+    return (x < 0.5 ? "по центру" : cm(x) + " см " + side + " центра") + ", " +
+      (y >= 0 ? cm(y) + " см ниже верха плеча" : cm(-y) + " см выше верха плеча");
+  }
+  const x = Math.round(Math.abs(dx) / BODY.width * 100);
+  const y = Math.round(dy / BODY.length * 100);
+  return (x < 1 ? "по центру" : x + "% ширины " + side + " центра") + ", " + y + "% длины от верха плеча";
+}
+function describe(side) {
+  const list = state.patches[side];
+  if (!list.length) return "";
+  const head = (side === "front" ? "Вид спереди" : "Вид со спины") + ", до центра нашивки:";
+  return head + "\n" + list.map((p) => TYPES[p.type].label + " — " + place(p) + " (" + zoneOf(p) + ")").join("\n");
 }
 function current() { return state.patches[state.side]; }
 function selectedPatch() { return current().find((p) => p.uid === state.selected) || null; }
+function price() {
+  const patches = state.patches.front.length + state.patches.back.length;
+  const base = state.fit === "none" ? PRICE.none : PRICE.tee;
+  const qty = /^[1-9]\d{0,3}$/.test(val("qty")) ? +val("qty") : 1;
+  const discount = state.promo.ok ? PRICE.promo : 0;
+  return { patches, base, qty, discount, total: Math.max(0, (base + PRICE.patch * patches) * qty - discount) };
+}
 
 /* ---------- rendering ---------- */
 function renderTee() {
   const front = state.side === "front";
-  const shape = state.fit === "over" ? SHAPES.over : SHAPES.classic;
   const neckFront = state.collar === "v" ? "L300 140 L250 70" : "C340 114 260 114 250 70";
   const neckBack = "Q300 88 250 70";
   const neck = front ? neckFront : neckBack;
-  $("pBody").setAttribute("d", shape.body + " " + neck + " Z");
+  $("pBody").setAttribute("d", SHAPE.body + " " + neck + " Z");
   $("pInner").setAttribute("d", front ? "M250 70 Q300 86 350 70 " + neckFront + " Z" : "M0 0");
   $("pRib").setAttribute("d", front ? "M350 70 " + neckFront + " M250 70 Q300 86 350 70" : "M350 70 " + neckBack);
-  $("pSeam").setAttribute("d", shape.seam);
-  const custom = state.fit === "custom";
+  $("pSeam").setAttribute("d", SHAPE.seam);
   show($("backLogo"), !front);
-  show($("dims"), custom);
-  document.querySelectorAll("[data-dim]").forEach((el) => show(el, custom));
-  show($("measureBox"), custom);
-  show($("sizeBox"), !custom);
+  show($("measureBox"), state.fit === "custom");
+  show($("sizeBox"), state.fit === "std");
+  const d = dims();
+  [["dimA", "A", d.a], ["dimB", "B", d.b], ["dimC", "C", d.c]].forEach(([id, letter, v]) => {
+    $(id).textContent = v ? letter + " " + String(v).replace(".", ",") : letter;
+  });
 }
 
 function renderGroups() {
@@ -529,10 +619,16 @@ function renderSelection() {
 }
 
 function renderSummary() {
+  const pr = price();
   $("sCollar").textContent = LABELS.collar[state.collar];
-  $("sFit").textContent = LABELS.fit[state.fit];
+  $("sFit").textContent = LABELS.fit[state.fit] + (state.fit === "std" && state.size ? ", " + state.size : "");
   $("sFabric").textContent = LABELS.fabric[state.fabric];
   $("sPatches").textContent = "спереди " + state.patches.front.length + " · сзади " + state.patches.back.length;
+  $("sCalc").textContent = rub(pr.base) + " + " + pr.patches + " × " + rub(PRICE.patch) + (pr.qty > 1 ? ", × " + pr.qty + " шт." : "");
+  show($("sDiscountT"), pr.discount > 0);
+  show($("sDiscount"), pr.discount > 0);
+  $("sDiscount").textContent = "−" + rub(PRICE.promo) + " (" + PRICE.bonus + " бонусов)";
+  $("sTotal").textContent = rub(pr.total);
 }
 
 function renderAll() { renderGroups(); renderTee(); renderPatches(); }
@@ -579,6 +675,7 @@ document.querySelectorAll("[data-group]").forEach((g) => {
     if (!b) return;
     state[g.dataset.group] = b.dataset.v;
     if (g.dataset.group === "side") state.selected = null;
+    if (g.dataset.group === "size") $("sizeBox").classList.remove("bad");
     renderAll();
   });
 });
@@ -596,26 +693,68 @@ document.querySelectorAll("[data-preset]").forEach((b) => b.addEventListener("cl
   renderAll();
   $("tee").scrollIntoView({ block: "nearest", behavior: "smooth" });
 }));
+["m_a", "m_b", "m_c"].forEach((id) => $(id).addEventListener("input", renderTee));
+$("qty").addEventListener("input", renderSummary);
+["name", "contact", "qty", "m_a", "m_b", "m_c"].forEach((id) => $(id).addEventListener("input", () => {
+  $("f-" + id).classList.remove("bad");
+  $("formMsg").textContent = "";
+}));
+
+/* ---------- promo code ---------- */
+function promoMsg(text, kind) {
+  const el = $("promoMsg");
+  el.textContent = text;
+  el.className = "hint" + (kind ? " " + kind : "");
+}
+/* Проверяет код из поля. Возвращает true, если код принят. */
+async function checkPromo() {
+  const code = val("promo").toUpperCase();
+  state.promo = { code, ok: false };
+  if (!code) { promoMsg(""); renderSummary(); return false; }
+  if (!CONFIG.promoUrl) { promoMsg("Проверка промокодов ещё не подключена.", "no"); renderSummary(); return false; }
+  const btn = $("promoBtn");
+  btn.disabled = true;
+  promoMsg("Проверяем…");
+  try {
+    const r = await fetch(CONFIG.promoUrl + "?code=" + encodeURIComponent(code));
+    const j = await r.json();
+    state.promo.ok = !!j.ok;
+    if (state.promo.ok) promoMsg("Промокод принят: " + PRICE.bonus + " бонусов = −" + rub(PRICE.promo), "ok");
+    else promoMsg("Такого промокода нет или он уже использован.", "no");
+  } catch (err) {
+    promoMsg("Не удалось проверить промокод. Попробуйте ещё раз.", "no");
+  } finally {
+    btn.disabled = false;
+    renderSummary();
+  }
+  return state.promo.ok;
+}
+$("promoBtn").addEventListener("click", checkPromo);
+$("promo").addEventListener("input", () => {
+  if (state.promo.ok || $("promoMsg").textContent) { state.promo = { code: "", ok: false }; promoMsg(""); renderSummary(); }
+});
+$("promo").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); checkPromo(); } });
 
 /* ---------- order ---------- */
-const val = (id) => $(id).value.trim();
-
 function collect() {
-  const custom = state.fit === "custom";
+  const d = dims();
+  const pr = price();
+  const n = (v) => (v ? String(v).replace(".", ",") : "");
   return {
     name: val("name"),
     contact: val("contact"),
     collar: LABELS.collar[state.collar],
-    fit: LABELS.fit[state.fit],
-    size: custom ? "" : val("size"),
-    m_a: custom ? val("m_a") : "",
-    m_b: custom ? val("m_b") : "",
-    m_c: custom ? val("m_c") : "",
+    tee: LABELS.fit[state.fit],
+    size: state.fit === "std" ? (state.size || "") : "",
+    m_a: n(d.a), m_b: n(d.b), m_c: n(d.c),
     fabric: LABELS.fabric[state.fabric],
-    front: describe(state.patches.front),
-    back: describe(state.patches.back),
-    total: String(state.patches.front.length + state.patches.back.length),
-    qty: val("qty"),
+    front: describe("front"),
+    back: describe("back"),
+    total: String(pr.patches),
+    qty: String(pr.qty),
+    promo: state.promo.ok ? state.promo.code : "",
+    discount: pr.discount ? String(pr.discount) : "",
+    price: String(pr.total),
     comment: val("comment"),
     link: layoutLink()
   };
@@ -626,37 +765,49 @@ function validate(data) {
   const need = (key, ok) => { $("f-" + key).classList.toggle("bad", !ok); if (!ok) bad.push(key); };
   need("name", !!data.name);
   need("contact", !!data.contact);
-  need("qty", /^[1-9]\d{0,3}$/.test(data.qty));
-  if (state.fit === "custom") {
-    need("m_a", !!data.m_a); need("m_b", !!data.m_b); need("m_c", !!data.m_c);
-    $("f-size").classList.remove("bad");
-  } else {
-    need("size", !!data.size);
-    ["m_a", "m_b", "m_c"].forEach((k) => $("f-" + k).classList.remove("bad"));
-  }
+  need("qty", /^[1-9]\d{0,3}$/.test(val("qty")));
+  const sizeOk = state.fit !== "std" || !!state.size;
+  $("sizeBox").classList.toggle("bad", !sizeOk);
+  if (!sizeOk) bad.push("size");
+  ["m_a", "m_b", "m_c"].forEach((k) => {
+    if (state.fit === "custom") need(k, num(k) !== null);
+    else $("f-" + k).classList.remove("bad");
+  });
   return bad;
 }
 
 const FIELD_NAMES = {
-  name: "Имя", contact: "Как связаться", collar: "Ворот", fit: "Посадка", size: "Размер",
+  name: "Имя", contact: "Как связаться", collar: "Ворот", tee: "Футболка", size: "Размер",
   m_a: "A · Длина, см", m_b: "B · Ширина, см", m_c: "C · Рукав, см", fabric: "Ткань",
   front: "Нашивки спереди", back: "Нашивки сзади", total: "Всего нашивок",
-  qty: "Количество футболок", comment: "Комментарий", link: "Ссылка на макет"
+  qty: "Количество", promo: "Промокод", discount: "Скидка по промокоду, ₽", price: "Итого, ₽",
+  comment: "Комментарий", link: "Ссылка на макет"
 };
 
 async function send(e) {
   e.preventDefault();
-  const data = collect();
-  const bad = validate(data);
   const msg = $("formMsg");
   show($("testBox"), false);
+  const bad = validate(collect());
   if (bad.length) {
     msg.textContent = "Заполните: " + bad.map((k) => FIELD_NAMES[k].toLowerCase()).join(", ") + ".";
-    const first = $(bad[0]);
+    const first = bad[0] === "size" ? $("sizeBox").querySelector("button") : $(bad[0]);
     if (first) first.focus();
     return;
   }
   msg.textContent = "";
+
+  /* Код введён, но не применён: проверяем перед отправкой, чтобы сумма была верной. */
+  const typed = val("promo").toUpperCase();
+  if (typed && !(state.promo.ok && state.promo.code === typed)) {
+    const ok = await checkPromo();
+    if (!ok) {
+      msg.textContent = "Промокод не применён. Исправьте его или очистите поле.";
+      $("promo").focus();
+      return;
+    }
+  }
+  const data = collect();
 
   if (!CONFIG.formAction) {
     const box = $("testBox");
@@ -691,6 +842,11 @@ $("orderForm").addEventListener("submit", send);
 $("againBtn").addEventListener("click", () => {
   show($("donePanel"), false);
   show($("orderPanel"), true);
+  /* Промокод одноразовый: после заказа поле очищается. */
+  $("promo").value = "";
+  state.promo = { code: "", ok: false };
+  promoMsg("");
+  renderSummary();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
